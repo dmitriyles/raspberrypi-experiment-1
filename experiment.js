@@ -29,6 +29,9 @@ if (Meteor.isClient) {
             } else {
                 return pin3.state ? 'ON' : 'OFF';
             }
+        },
+        connected: function () {
+            return Meteor.status().connected;
         }
     });
 
@@ -49,7 +52,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
     Meteor.startup(function () {
         if (!Pins.findOne("3")) {
-            Pins.insert({_id: "3", status: false});
+            Pins.insert({_id: "3", state: false});
         }
     });
 

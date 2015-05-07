@@ -7,6 +7,10 @@
 </body>
 
 <template name="experiment1">
-    <p>LED state is {{state}}</p>
-    <button>Toggle</button>
+    {{#if connected}}
+        <p>LED state is {{state}}</p>
+        <button>Toggle</button>
+    {{else}}
+        Connecting...
+    {{/if}}
 </template>
